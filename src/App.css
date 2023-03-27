@@ -1,0 +1,38 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form {
+  margin: 1rem 0;
+}
+
+input {
+  margin: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.2); 
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+td, th {
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
