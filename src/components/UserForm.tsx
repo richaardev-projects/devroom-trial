@@ -43,7 +43,8 @@ export const UserForm: React.FC<UserFormProps> = ({}) => {
     event.preventDefault();
 
     // lets check if all fields are not empty
-    if (name === "" && email === "" && phone === "") {
+    if (name.trim() === "" || email.trim() === "" || phone.trim() === "") {
+      clearForm();
       alert("All fields need to be filled");
       return;
     }
