@@ -7,6 +7,15 @@ import { UserForm } from "./UserForm";
 
 describe("UserForm", () => {
   test("should the form is submitting correctly when all fields are filled", async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: vi.fn().mockResolvedValue({
+        id: 11,
+        name: "John Doe",
+        email: "john@example.com",
+        phone: "1234567890",
+      }),
+    });
     const addUser = vi.fn();
 
     render(
@@ -34,7 +43,7 @@ describe("UserForm", () => {
         name: "John Doe",
         email: "john@example.com",
         phone: "1234567890",
-        id: expect.anything(),
+        id: 11,
       });
     });
   });
@@ -53,7 +62,7 @@ describe("UserForm", () => {
     const phoneInput = screen.getByPlaceholderText("Phone");
     const submitButton = screen.getByRole("button");
 
-    fireEvent.change(nameInput, { target: { value: "" } });
+    fireEvent.change(nameInput, { target: { value: "John Doe" } });
     fireEvent.change(emailInput, { target: { value: "" } });
     fireEvent.change(phoneInput, { target: { value: "" } });
     fireEvent.click(submitButton);
